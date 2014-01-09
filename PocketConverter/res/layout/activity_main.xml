@@ -8,16 +8,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" 
 	android:orientation="horizontal" >
-	<!--  TextField for user input of numbers to convert -->
+	<!--  TextField for user input in decimal form -->
 	<EditText android:id="@+id/decimal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/decimal"
         android:layout_weight="1" />
-	<!-- Unworking Button for Decimal form -->
+	<!-- Unworking Button -->
 	<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_send" />
+        android:text="@string/button_send"
+        android:onClick="sendMessage" />
 	
 </LinearLayout>
