@@ -7,7 +7,6 @@
     <string name="bin_field">Enter a Binary Number</string>
     <string name="hex_field">Enter a Hexidecimal Number</string>
     <string name="oct_field">Enter an Octal Number</string>
-    <string name="decimal">Decimal!</string>
     <string name="button_send">Send</string>
     <string name="title_activity_display_message">My Message</string>
     <string name="hello_world">Hello world!</string>
