@@ -8,16 +8,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" 
 	android:orientation="horizontal" >
-	<!--  TextField for user input of numbers to convert -->
-	<EditText android:id="@+id/decimal"
+	
+	<!--  Decimal Text Field -->
+	<EditText android:id="@+id/dec_field"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/decimal"
+        android:hint="@string/dec_field"
         android:layout_weight="1" />
+	
+	<!-- Binary Text Field -->
+	<EditText android:id="@+id/bin_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/bin_field"
+        android:layout_weight="1" />
+	
+	<!-- Hexidecimal Text Field -->
+	<EditText android:id="@+id/hex_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hex_field"
+        android:layout_weight="1" />
+	
+	<!-- Octal Text Field -->
+	<EditText android:id="@+id/oct_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/oct_field"
+        android:layout_weight="1" />
+	
 	<!-- Unworking Button for Decimal form -->
 	<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_send" />
+        android:text="@string/button_convert" />
 	
 </LinearLayout>
