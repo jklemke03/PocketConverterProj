@@ -11,25 +11,28 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 
-@SuppressLint("NewApi")
 public class DisplayMessageActivity extends Activity {
     @SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_message);
+		
 		//Make sure we're running on Honeycomb or Higher to use ActionBar APIs
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){
 			//Show the Up button in the action bar.
 			getActionBar().setDisplayHomeAsUpEnabled(true);
 		}
+		
 		//Calls Intent to receive the data 
 		Intent intent = getIntent();
 		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+		
 		//Create the text view
 		TextView textView = new TextView(this);
 		textView.setTextSize(40);
 		textView.setText(message);
+		
 		//Set the text view a the activity layout
 		setContentView(textView);
 	}
@@ -43,6 +46,7 @@ public class DisplayMessageActivity extends Activity {
 			getActionBar().setDisplayHomeAsUpEnabled(true);
 		}
 	}
+	
 	/**
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
