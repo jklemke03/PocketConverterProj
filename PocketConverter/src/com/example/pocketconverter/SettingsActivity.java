@@ -2,7 +2,6 @@ package com.example.pocketconverter;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
@@ -11,12 +10,12 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 
-public class DisplayMessageActivity extends Activity {
+public class SettingsActivity extends Activity {
     @SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_display_message);
+		setContentView(R.layout.activity_settings);
 		
 		//Make sure we're running on Honeycomb or Higher to use ActionBar APIs
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){

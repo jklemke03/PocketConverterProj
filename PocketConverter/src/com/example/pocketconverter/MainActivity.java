@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 		
 		
 		//Creates an intent object used to start another activity
-		Intent intent = new Intent(this, DisplayMessageActivity.class);
+		Intent intent = new Intent(this, SettingsActivity.class);
 		
 		//Finds the text value for decimal textfield
 		EditText decimalText = (EditText) findViewById(R.id.dec_field);

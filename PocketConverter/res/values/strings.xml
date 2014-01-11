@@ -8,7 +8,7 @@
     <string name="hex_field">Enter a Hexidecimal Number</string>
     <string name="oct_field">Enter an Octal Number</string>
     <string name="button_convert">Convert Number</string>
-    <string name="title_activity_display_message">My Message</string>
+    <string name="title_activity_settings">My Message</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>

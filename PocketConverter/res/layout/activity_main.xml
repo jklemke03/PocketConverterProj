@@ -22,6 +22,7 @@
 	    android:id="@+id/bin_field"
 	    android:layout_width="279dp"
 	    android:layout_height="wrap_content"
+	    android:editable="false"
 	    android:hint="@string/bin_field" />
 	
 	<!-- Hexidecimal Text Field -->
@@ -30,6 +31,7 @@
 	    android:id="@+id/hex_field"
 	    android:layout_width="279dp"
 	    android:layout_height="wrap_content"
+	    android:editable="false"
 	    android:hint="@string/hex_field" />
 		
 	<!-- Octal Text Field -->
@@ -38,6 +40,7 @@
 	    android:id="@+id/oct_field"
 	    android:layout_width="279dp"
 	    android:layout_height="wrap_content"
+	    android:editable="false"
 	    android:hint="@string/oct_field" />
 
 	<!-- Unworking Button -->
