@@ -66,13 +66,17 @@ public class MainActivity extends Activity {
 		
 		if(!decimalInput.equals("")){
 			intent.putExtra(EXTRA_MESSAGE, decimalInput);
+			String decToHex;
+			int decimalNumber = Integer.parseInt(decimalInput);
 			
 			//Call method that will convert the other forms
+			ConvertCalculations calc = new ConvertCalculations();
+			decToHex = calc.convertHex(decimalNumber);
 			
 			//Sets the text "converted numbers" to the textfields
 			
 			binaryText.setText("Boo");
-			hexText.setText("Bah");
+			hexText.setText(decToHex);
 			octText.setText("Bam");
 		}
 		else if(!binaryText.equals("")){
