@@ -38,26 +38,42 @@ public class MainActivity extends Activity {
 	public void convertNumber(View view) {
 		
 		
-		
 		//Creates an intent object used to start another activity
 		Intent intent = new Intent(this, SettingsActivity.class);
 		
 		//Finds the text value for decimal textfield
+		
 		EditText decimalText = (EditText) findViewById(R.id.dec_field);
 		String decimalInput = decimalText.getText().toString();
+		
 		//Finds text value for binary textfield
+		
 		EditText binaryText = (EditText) findViewById(R.id.bin_field);
 		String binaryInput = binaryText.getText().toString();
+		
 		//Finds text value for hexidecimal textfield
+		
 		EditText hexText = (EditText) findViewById(R.id.hex_field);
 		String hexInput = hexText.getText().toString();
+		
 		//Finds text for value for octal textfield
+		
 		EditText octText = (EditText) findViewById(R.id.oct_field);
 		String octInput = octText.getText().toString();
+		
 		//Find which textfield is not empty in order to create intent
 		//May be simpler way to do this. Also need to check if fields empty or more than one filled
+		
 		if(!decimalInput.equals("")){
 			intent.putExtra(EXTRA_MESSAGE, decimalInput);
+			
+			//Call method that will convert the other forms
+			
+			//Sets the text "converted numbers" to the textfields
+			
+			binaryText.setText("Boo");
+			hexText.setText("Bah");
+			octText.setText("Bam");
 		}
 		else if(!binaryText.equals("")){
 			intent.putExtra(EXTRA_MESSAGE, binaryInput);
@@ -73,7 +89,7 @@ public class MainActivity extends Activity {
 			//none have anything in them. Perhaps message inputted onto screen?
 		}
 	
-		startActivity(intent);
+		//startActivity(intent);
 	}
 	
 
