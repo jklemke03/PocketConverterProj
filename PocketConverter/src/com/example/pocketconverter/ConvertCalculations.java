@@ -69,7 +69,42 @@ public class ConvertCalculations {
 			
 		}
 		//Add last remainder to the result string
-		resultString = decimalNumber + resultString;
+		if(decimalNumber == 10)
+		{
+			tempHexString = "A";
+			resultString = tempHexString + resultString;
+		}
+		else if(decimalNumber == 11)
+		{
+			tempHexString = "B";
+			resultString = tempHexString + resultString;
+		}
+		else if(decimalNumber == 12)
+		{
+			tempHexString = "C";
+			resultString = tempHexString + resultString;
+		}
+		else if(decimalNumber == 13)
+		{
+		    tempHexString = "D";
+		    resultString = tempHexString + resultString;
+		}
+		else if(decimalNumber == 14)
+		{
+			tempHexString = "E";
+			resultString = tempHexString + resultString;
+		}
+		else if(decimalNumber == 15)
+		{
+			tempHexString = "F";
+			resultString = tempHexString + resultString;
+		}
+		else 
+		{
+			resultString = decimalNumber + resultString;
+		}
+		
+		
 		
 		return resultString;
 	}
