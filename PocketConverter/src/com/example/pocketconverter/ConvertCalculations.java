@@ -3,26 +3,32 @@ package com.example.pocketconverter;
 
 public class ConvertCalculations {
 
-	private int hexDivision;
-	private String hexResultString;
+	//private int division;
+	private String resultString;
 	private String tempHexString;
-	private int hexResultInt;
+	private int resultInt;
 	private int tempRemain;
 	private final int HEXDIVISOR = 16; 
+	private final int BINDIVISOR = 2;
+	private final int OCTDIVISOR = 8;
 	
 	public ConvertCalculations(){
-	    hexDivision = 0;
-	    hexResultString = "";
+	    //division = 0;
+	    resultString = "";
+	    resultInt = 0;
+	    tempRemain = 0;
 	}
 	
-	public String convertHex(int decimalNumber){
-		while(HEXDIVISOR <= decimalNumber)
-		{
-			//Find remainder of decimal number and 16
+	public String convertHex(int decimalNumber) {
+		resultString = "";
+	    resultInt = 0;
+	    tempRemain = 0;
+		while(HEXDIVISOR <= decimalNumber) {
+			//Find remainder of decimal number modulo 16
 			tempRemain = decimalNumber%HEXDIVISOR;
 			
 			//Find decimalNumber divided by 16
-			hexResultInt = decimalNumber/HEXDIVISOR;
+			resultInt = decimalNumber/HEXDIVISOR;
 			
 			
 			//Setting the hex alphabet value to numbers 10 to 15
@@ -56,16 +62,60 @@ public class ConvertCalculations {
 			}
 			
 			//Add remainder to the result string
-			hexResultString = tempHexString + hexResultString;
+			resultString = tempHexString + resultString;
 			
 			//Set the decimalNumber to be divided next to the previous result
-			decimalNumber = hexResultInt;
+			decimalNumber = resultInt;
 			
 		}
 		//Add last remainder to the result string
-		hexResultString = decimalNumber + hexResultString;
+		resultString = decimalNumber + resultString;
 		
-		return hexResultString;
+		return resultString;
+	}
+	
+	public String convertBin(int decimalNumber) {
+		resultString = "";
+	    resultInt = 0;
+	    tempRemain = 0;
+		while(decimalNumber >= 1) {
+			//Find the remainder of decimal number modulo 2
+			tempRemain = decimalNumber%BINDIVISOR;
+			
+			//Find decimalNumber divided by 2
+			resultInt = decimalNumber/BINDIVISOR;
+
+			//Add remainder to result string
+			resultString += tempRemain;
+			
+			//Set decimalNumber
+			decimalNumber = resultInt;
+		}
 		
+		return new StringBuilder(resultString).reverse().toString();
+	}
+	
+	public String convertOct(int decimalNumber) {
+		resultString = "";
+	    resultInt = 0;
+	    tempRemain = 0;
+		while(decimalNumber >= OCTDIVISOR) {
+			//Find the remainder of decimal number modulo 8
+			tempRemain = decimalNumber%OCTDIVISOR;
+			
+			//Find decimalNumber divided by 8
+			resultInt = decimalNumber/OCTDIVISOR;
+			
+			//Add remainder to result string
+			resultString += tempRemain;
+			
+			//Set decimalNumber
+			decimalNumber = resultInt;
+		}
+		
+		//Add final remainder to result
+		resultString += resultInt;
+		
+		return new StringBuilder(resultString).reverse().toString();
 	}
 }

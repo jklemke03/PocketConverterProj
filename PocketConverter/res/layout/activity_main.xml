@@ -14,7 +14,6 @@
 	    android:id="@+id/dec_field"
 	    android:layout_width="279dp"
 	    android:layout_height="wrap_content"
-	    android:inputType="number"
 	    android:hint="@string/dec_field" />
 	
 	<!-- Binary Text Field -->
@@ -23,7 +22,6 @@
 	    android:id="@+id/bin_field"
 	    android:layout_width="279dp"
 	    android:layout_height="wrap_content"
-	    android:inputType="number"
 	    android:editable="false"
 	    android:hint="@string/bin_field" />
 	
@@ -33,7 +31,6 @@
 	    android:id="@+id/hex_field"
 	    android:layout_width="279dp"
 	    android:layout_height="wrap_content"
-	    android:inputType="number"
 	    android:editable="false"
 	    android:hint="@string/hex_field" />
 		
@@ -43,7 +40,6 @@
 	    android:id="@+id/oct_field"
 	    android:layout_width="279dp"
 	    android:layout_height="wrap_content"
-	    android:inputType="number"
 	    android:editable="false"
 	    android:hint="@string/oct_field" />
 

@@ -37,63 +37,59 @@ public class MainActivity extends Activity {
     //Called when the user clicks the Send Button
 	public void convertNumber(View view) {
 		
-		
-		//Creates an intent object used to start another activity
-		Intent intent = new Intent(this, SettingsActivity.class);
-		
-		//Finds the text value for decimal textfield
+		//Finds the text value for decimal text field
 		
 		EditText decimalText = (EditText) findViewById(R.id.dec_field);
-		String decimalInput = decimalText.getText().toString();
+		String decInput = decimalText.getText().toString();
+		int decimalNumber = Integer.parseInt(decInput);
 		
-		//Finds text value for binary textfield
+		//Finds text value for binary text field
 		
-		EditText binaryText = (EditText) findViewById(R.id.bin_field);
-		String binaryInput = binaryText.getText().toString();
+		EditText binText = (EditText) findViewById(R.id.bin_field);
+		String binInput = binText.getText().toString();
 		
-		//Finds text value for hexidecimal textfield
+		//Finds text value for hexadecimal text field
 		
 		EditText hexText = (EditText) findViewById(R.id.hex_field);
 		String hexInput = hexText.getText().toString();
 		
-		//Finds text for value for octal textfield
+		//Finds text for value for octal text field
 		
 		EditText octText = (EditText) findViewById(R.id.oct_field);
 		String octInput = octText.getText().toString();
 		
-		//Find which textfield is not empty in order to create intent
+		//Find which text field is not empty in order to create intent
 		//May be simpler way to do this. Also need to check if fields empty or more than one filled
 		
-		if(!decimalInput.equals("")){
-			intent.putExtra(EXTRA_MESSAGE, decimalInput);
+		if(!decInput.equals("")){
 			String decToHex;
-			int decimalNumber = Integer.parseInt(decimalInput);
-			
+			String decToBin;
+			String decToOct;
 			//Call method that will convert the other forms
 			ConvertCalculations calc = new ConvertCalculations();
 			decToHex = calc.convertHex(decimalNumber);
+			decToBin = calc.convertBin(decimalNumber);
+			decToOct = calc.convertOct(decimalNumber);
+			//Sets the text "converted numbers" to the text fields
 			
-			//Sets the text "converted numbers" to the textfields
-			
-			binaryText.setText("Boo");
+			binText.setText(decToBin);
 			hexText.setText(decToHex);
-			octText.setText("Bam");
+			octText.setText(decToOct);
 		}
-		else if(!binaryText.equals("")){
-			intent.putExtra(EXTRA_MESSAGE, binaryInput);
+		else if(!binInput.equals("")){
+
 		}
 		else if(!hexInput.equals("")){
-			intent.putExtra(EXTRA_MESSAGE, hexInput);
+			
 		}
 		else if(!octInput.equals("")){
-			intent.putExtra(EXTRA_MESSAGE, octInput);
+	
 		}
 		else
 		{
 			//none have anything in them. Perhaps message inputted onto screen?
 		}
 	
-		//startActivity(intent);
 	}
 	
 
@@ -110,8 +106,9 @@ public class MainActivity extends Activity {
 	}
 
 	private void openSettings() {
-		// TODO create method for opening the setting page.
-		
+		Intent intent = new Intent(this, SettingsActivity.class);
+		//String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+		startActivity(intent);
 	}
 	
 }
