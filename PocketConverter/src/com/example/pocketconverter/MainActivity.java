@@ -15,7 +15,7 @@ import android.widget.EditText;
  * 
  * Formats include: decimal, binary, hex
  * 
- * @authors: Jennifer Lemke and Curran Hamliton
+ * @authors: Jennifer Lemke and Curran Hamilton
  * @version: 1/9/2014 7:57pm
  */
 
@@ -37,24 +37,29 @@ public class MainActivity extends Activity {
     //Called when the user clicks the Send Button
 	public void convertNumber(View view) {
 		
-		//Finds the text value for decimal text field
 		
+		//Finds the text value for decimal text field
 		EditText decimalText = (EditText) findViewById(R.id.dec_field);
 		String decInput = decimalText.getText().toString();
-		int decimalNumber = Integer.parseInt(decInput);
+		int decimalNumber = 0;
 		
+		//Test the input of the decimal field
+		final StringBuilder errorMessage = new StringBuilder("Bad Input Value: ");
+		try {
+			decimalNumber = Integer.parseInt(decInput);
+		} catch (final NumberFormatException e) {
+			errorMessage.append("Failed to parse decimal number" + e.getMessage());
+		}
+				
 		//Finds text value for binary text field
-		
 		EditText binText = (EditText) findViewById(R.id.bin_field);
 		String binInput = binText.getText().toString();
 		
 		//Finds text value for hexadecimal text field
-		
 		EditText hexText = (EditText) findViewById(R.id.hex_field);
 		String hexInput = hexText.getText().toString();
 		
 		//Finds text for value for octal text field
-		
 		EditText octText = (EditText) findViewById(R.id.oct_field);
 		String octInput = octText.getText().toString();
 		
@@ -87,7 +92,7 @@ public class MainActivity extends Activity {
 		}
 		else
 		{
-			//none have anything in them. Perhaps message inputted onto screen?
+			//none have anything in them. Perhaps message inputed onto screen?
 		}
 	
 	}
