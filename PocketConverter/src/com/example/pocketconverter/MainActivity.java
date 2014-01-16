@@ -36,7 +36,11 @@ public class MainActivity extends Activity {
 	}
     //Called when the user clicks the Send Button
 	public void convertNumber(View view) {
-		
+		//Data Fields
+		ConvertCalculations calc = new ConvertCalculations();
+		String decToHex;
+		String decToBin;
+		String decToOct;
 		
 		//Finds the text value for decimal text field
 		EditText decimalText = (EditText) findViewById(R.id.dec_field);
@@ -67,11 +71,7 @@ public class MainActivity extends Activity {
 		//May be simpler way to do this. Also need to check if fields empty or more than one filled
 		
 		if(!decInput.equals("")){
-			String decToHex;
-			String decToBin;
-			String decToOct;
 			//Call method that will convert the other forms
-			ConvertCalculations calc = new ConvertCalculations();
 			decToHex = calc.convertHex(decimalNumber);
 			decToBin = calc.convertBin(decimalNumber);
 			decToOct = calc.convertOct(decimalNumber);
@@ -82,13 +82,32 @@ public class MainActivity extends Activity {
 			octText.setText(decToOct);
 		}
 		else if(!binInput.equals("")){
-
-		}
-		else if(!hexInput.equals("")){
+			int binToDec;
+			binToDec = calc.convertBinToDec(binInput);
+			decToHex = calc.convertHex(binToDec);
+			decToOct = calc.convertOct(binToDec);
+			decimalText.setText(Integer.toString(binToDec));
+			hexText.setText(decToHex);
+			octText.setText(decToOct);
 			
 		}
+		else if(!hexInput.equals("")){
+			int hexToDec;
+			hexToDec = calc.convertHexToDec(hexInput);
+			decToBin = calc.convertBin(hexToDec);
+			decToOct = calc.convertOct(hexToDec);
+			decimalText.setText(Integer.toString(hexToDec));
+			octText.setText(decToOct);
+			binText.setText(decToBin);
+		}
 		else if(!octInput.equals("")){
-	
+			int octToDec;
+			octToDec = calc.convertHexToDec(octInput);
+			decToBin = calc.convertBin(octToDec);
+			decToHex = calc.convertOct(octToDec);
+			decimalText.setText(Integer.toString(octToDec));
+			binText.setText(decToBin);
+			hexText.setText(decToHex);
 		}
 		else
 		{

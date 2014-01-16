@@ -1,6 +1,7 @@
 package com.example.pocketconverter;
 
 
+
 public class ConvertCalculations {
 
 	//private int division;
@@ -19,6 +20,7 @@ public class ConvertCalculations {
 	    tempRemain = 0;
 	}
 	
+	//Method for converting dec to hex
 	public String convertHex(int decimalNumber) {
 		//resultString = "";
 	    //resultInt = 0;
@@ -96,6 +98,7 @@ public class ConvertCalculations {
 		return new StringBuilder(resultString).reverse().toString();
 	}
 	
+	//Method for converting dec to bin
 	public String convertBin(int decimalNumber) {
 		resultString = "";
 	    resultInt = 0;
@@ -117,6 +120,7 @@ public class ConvertCalculations {
 		return new StringBuilder(resultString).reverse().toString();
 	}
 	
+	//Method for converting dec to oct
 	public String convertOct(int decimalNumber) {
 		resultString = "";
 	    resultInt = 0;
@@ -139,5 +143,29 @@ public class ConvertCalculations {
 		resultString += resultInt;
 		
 		return new StringBuilder(resultString).reverse().toString();
+	}
+	
+	//Method for converting bin to dec
+	public int convertBinToDec(String binaryNumber) {
+		resultString = "";
+	    resultInt = Integer.parseInt(binaryNumber, 2);
+	    tempRemain = 0;
+		return resultInt;
+	}
+	
+	//Method for converting hex to dec
+	public int convertHexToDec(String hexNumber) {
+		resultString = "";
+	    resultInt = Integer.parseInt(hexNumber, 16);
+	    tempRemain = 0;
+		return resultInt;
+	}
+	
+	//Method for converting oct to dec
+	public int convertOctToDec(String octNumber) {
+		resultString = "";
+		resultInt = Integer.parseInt(octNumber, 8);
+		tempRemain = 0;
+		return resultInt;
 	}
 }
