@@ -20,9 +20,9 @@ public class ConvertCalculations {
 	}
 	
 	public String convertHex(int decimalNumber) {
-		resultString = "";
-	    resultInt = 0;
-	    tempRemain = 0;
+		//resultString = "";
+	    //resultInt = 0;
+	    //tempRemain = 0;
 		while(HEXDIVISOR <= decimalNumber) {
 			//Find remainder of decimal number modulo 16
 			tempRemain = decimalNumber%HEXDIVISOR;
@@ -32,81 +32,68 @@ public class ConvertCalculations {
 			
 			
 			//Setting the hex alphabet value to numbers 10 to 15
-			if(tempRemain == 10)
-			{
-				tempHexString = "A";
+			switch(tempRemain){
+			   case 10: tempHexString = "A";
+						break;
+						
+			   case 11: tempHexString = "B";
+			   			break;
+			   			
+			   case 12: tempHexString = "C";
+			   			break;
+			   
+			   case 13: tempHexString = "D";
+			   			break;
+			   			
+			   case 14: tempHexString = "E";
+			   			break;
+			   			
+			   case 15: tempHexString = "F";
+			   			break;
+			   			
+			   default: tempHexString = Integer.toString(tempRemain);
+			   			break;
 			}
-			else if(tempRemain == 11)
-			{
-				tempHexString = "B";
-			}
-			else if(tempRemain == 12)
-			{
-				tempHexString = "C";
-			}
-			else if(tempRemain == 13)
-			{
-			    tempHexString = "D";
-			}
-			else if(tempRemain == 14)
-			{
-				tempHexString = "E";
-			}
-			else if(tempRemain == 15)
-			{
-				tempHexString = "F";
-			}
-			else
-			{
-				tempHexString = Integer.toString(tempRemain);
-			}
+						
 			
 			//Add remainder to the result string
-			resultString = tempHexString + resultString;
+			resultString += tempHexString;
 			
 			//Set the decimalNumber to be divided next to the previous result
 			decimalNumber = resultInt;
 			
 		}
 		//Add last remainder to the result string
-		if(decimalNumber == 10)
-		{
-			tempHexString = "A";
-			resultString = tempHexString + resultString;
-		}
-		else if(decimalNumber == 11)
-		{
-			tempHexString = "B";
-			resultString = tempHexString + resultString;
-		}
-		else if(decimalNumber == 12)
-		{
-			tempHexString = "C";
-			resultString = tempHexString + resultString;
-		}
-		else if(decimalNumber == 13)
-		{
-		    tempHexString = "D";
-		    resultString = tempHexString + resultString;
-		}
-		else if(decimalNumber == 14)
-		{
-			tempHexString = "E";
-			resultString = tempHexString + resultString;
-		}
-		else if(decimalNumber == 15)
-		{
-			tempHexString = "F";
-			resultString = tempHexString + resultString;
-		}
-		else 
-		{
-			resultString = decimalNumber + resultString;
-		}
+		switch(decimalNumber){
+		   case 10: tempHexString = "A";
+		   			resultString += tempHexString;
+					break;
+					
+		   case 11: tempHexString = "B";
+		   			resultString += tempHexString;
+		   			break;
+		   			
+		   case 12: tempHexString = "C";
+		   			resultString += tempHexString;
+		   			break;
+		   
+		   case 13: tempHexString = "D";
+		   			resultString += tempHexString;
+		   			break;
+		   			
+		   case 14: tempHexString = "E";
+		   			resultString += tempHexString;
+		   			break;
+		   			
+		   case 15: tempHexString = "F";
+		   			resultString += tempHexString;
+		   			break;
+		   			
+		   default: resultString += decimalNumber;
+		   			break;
+		}	
 		
-		
-		
-		return resultString;
+		return new StringBuilder(resultString).reverse().toString();
 	}
 	
 	public String convertBin(int decimalNumber) {
