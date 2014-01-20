@@ -10,5 +10,6 @@
     <string name="button_convert">Convert Number</string>
     <string name="title_activity_settings">My Message</string>
     <string name="hello_world">Hello world!</string>
+    <string name="button_reset">Reset</string>
 
 </resources>
