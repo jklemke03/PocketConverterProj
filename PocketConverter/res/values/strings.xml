@@ -7,9 +7,14 @@
     <string name="bin_field">Enter a Binary Number</string>
     <string name="hex_field">Enter a Hexidecimal Number</string>
     <string name="oct_field">Enter an Octal Number</string>
-    <string name="button_convert">Convert Number</string>
+    <string name="button_convert">Convert</string>
     <string name="title_activity_settings">My Message</string>
     <string name="hello_world">Hello world!</string>
     <string name="button_reset">Reset</string>
+    <string name="decimal">Decimal:</string>
+    <string name="binary">Binary:</string>
+	<string name="hexidecimal">Hexidecimal:</string>
+    <string name="octal">Octal:</string>
+
 
 </resources>
