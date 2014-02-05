@@ -103,6 +103,9 @@ public class ConvertCalculations {
 		resultString = "";
 	    resultInt = 0;
 	    tempRemain = 0;
+	    if (decimalNumber == 0) {
+	    	return resultString = "0";
+	    }
 		while(decimalNumber >= 1) {
 			//Find the remainder of decimal number modulo 2
 			tempRemain = decimalNumber%BINDIVISOR;
@@ -155,6 +158,12 @@ public class ConvertCalculations {
 	//Method for converting bin to dec
 	public int convertBinToDec(String binaryNumber) {
 		resultString = "";
+		resultInt = 0;
+		for (int i = 0; i<binaryNumber.length(); i++) {
+			if (binaryNumber.charAt(i)!='1' || binaryNumber.charAt(i)!='0'){
+				return resultInt;
+			}
+		}
 	    resultInt = Integer.parseInt(binaryNumber, 2);
 	    tempRemain = 0;
 		return resultInt;
@@ -163,7 +172,13 @@ public class ConvertCalculations {
 	//Method for converting hex to dec
 	public int convertHexToDec(String hexNumber) {
 		resultString = "";
-	    resultInt = Integer.parseInt(hexNumber, 16);
+		resultInt = 0;
+		try {
+		    resultInt = Integer.parseInt(hexNumber, 16);
+
+		} catch (final NumberFormatException e) {
+			return resultInt;
+		}
 	    tempRemain = 0;
 		return resultInt;
 	}
@@ -171,6 +186,12 @@ public class ConvertCalculations {
 	//Method for converting oct to dec
 	public int convertOctToDec(String octNumber) {
 		resultString = "";
+		resultInt = 0;
+		for (int i = 0; i<octNumber.length(); i++) {
+			if (octNumber.charAt(i)=='8' || octNumber.charAt(i)=='9'){
+				return resultInt;
+			}
+		}
 		resultInt = Integer.parseInt(octNumber, 8);
 		tempRemain = 0;
 		return resultInt;
