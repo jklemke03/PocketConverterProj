@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,9 +19,8 @@
         android:text="@string/decimal" />
 	<!--  Decimal Text Field -->	<EditText
 	    android:id="@+id/dec_field"
-	    android:layout_width="fill_parent"
+	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:layout_below="@id/dec_text"
 	    android:gravity="left"
 		android:inputType="number"	    
 	    android:hint="@string/dec_field" />
@@ -31,60 +30,63 @@
 	    android:id="@+id/bin_text"
 	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-	    android:layout_below="@id/dec_field"
-	    android:layout_marginTop="25dp"
+	    android:paddingTop="20dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/binary" />
 	
 	<!-- Binary Text Field -->
 	<EditText
 	    android:id="@+id/bin_field"
-	    android:layout_width="fill_parent"
+	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:gravity="left"
 	    android:inputType="number"
-	    android:hint="@string/bin_field" 
-	    android:layout_below="@id/bin_text"/>
+	    android:hint="@string/bin_field" />
 	
 	<!-- Text for Hex -->
 	<TextView
 	    android:id="@+id/hex_text"
 	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-	    android:layout_below="@id/bin_field"
-	    android:layout_marginTop="25dp"
+	    android:paddingTop="20dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/hexidecimal" />
 	
 	<!-- Hexidecimal Text Field -->
 	<EditText
 	    android:id="@+id/hex_field"
-	    android:layout_width="fill_parent"
+	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:gravity="left"
-	    android:hint="@string/hex_field"
-	    android:layout_below="@id/hex_text" />
+	    android:hint="@string/hex_field"/>
 	
 	<!-- Text for Oct -->
 	<TextView
 	    android:id="@+id/oct_text"
 	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-	    android:layout_below="@id/hex_field"
-	    android:layout_marginTop="25dp"
+	    android:paddingTop="20dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/octal" />
 		
 	<!-- Octal Text Field -->
 	<EditText
 	    android:id="@+id/oct_field"
-	    android:layout_width="fill_parent"
+	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:gravity="left"
 	    android:inputType="number"
-	    android:hint="@string/oct_field"
-	    android:layout_below="@id/oct_text" />
-
+	    android:hint="@string/oct_field"/>
+	
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical"
+    	android:paddingBottom="@dimen/activity_vertical_margin"
+    	android:paddingLeft="@dimen/activity_horizontal_margin"
+    	android:paddingRight="@dimen/activity_horizontal_margin"
+    	android:paddingTop="@dimen/activity_vertical_margin"
+    	tools:context=".MainActivity">
 	<!-- Top Divider Bar -->
 	<View 
 	    android:id="@+id/TopDivider"
@@ -92,8 +94,6 @@
 	    android:layout_height="1dip"
 	    android:layout_marginLeft="4dip"
 	    android:layout_marginRight="4dip"
-	    android:layout_marginTop="100dp"
-	    android:layout_below="@id/oct_field"
 	    android:background="?android:attr/dividerVertical"/>
 	
 	<!-- Divider Bar -->
@@ -133,8 +133,7 @@
         android:layout_toRightOf="@id/ViewDivider"
         android:text="@string/button_convert"
         android:onClick="convertNumber" />
-	<!-- Commented Code 
-	android:layout_alignParentTop="true"-->
+
+	</RelativeLayout>
 	
-	
-</RelativeLayout>
+</LinearLayout>
