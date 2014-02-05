@@ -111,9 +111,9 @@ public class MainActivity extends Activity {
 		}
 		else if(!octInput.equals("")){
 			int octToDec;
-			octToDec = calc.convertHexToDec(octInput);
+			octToDec = calc.convertOctToDec(octInput);
 			decToBin = calc.convertBin(octToDec);
-			decToHex = calc.convertOct(octToDec);
+			decToHex = calc.convertHex(octToDec);
 			decimalText.setText(Integer.toString(octToDec));
 			binText.setText(decToBin);
 			hexText.setText(decToHex);

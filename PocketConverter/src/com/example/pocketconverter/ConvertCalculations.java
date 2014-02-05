@@ -22,9 +22,9 @@ public class ConvertCalculations {
 	
 	//Method for converting dec to hex
 	public String convertHex(int decimalNumber) {
-		//resultString = "";
-	    //resultInt = 0;
-	    //tempRemain = 0;
+		resultString = "";
+	    resultInt = 0;
+	    tempRemain = 0;
 		while(HEXDIVISOR <= decimalNumber) {
 			//Find remainder of decimal number modulo 16
 			tempRemain = decimalNumber%HEXDIVISOR;
@@ -122,27 +122,34 @@ public class ConvertCalculations {
 	
 	//Method for converting dec to oct
 	public String convertOct(int decimalNumber) {
-		resultString = "";
-	    resultInt = 0;
-	    tempRemain = 0;
-		while(decimalNumber >= OCTDIVISOR) {
-			//Find the remainder of decimal number modulo 8
-			tempRemain = decimalNumber%OCTDIVISOR;
+		if(decimalNumber >7)
+		{
+			resultString = "";
+		    resultInt = 0;
+		    tempRemain = 0;
+			while(decimalNumber >= OCTDIVISOR) {
+				//Find the remainder of decimal number modulo 8
+				tempRemain = decimalNumber%OCTDIVISOR;
+				
+				//Find decimalNumber divided by 8
+				resultInt = decimalNumber/OCTDIVISOR;
+				
+				//Add remainder to result string
+				resultString += tempRemain;
+				
+				//Set decimalNumber
+				decimalNumber = resultInt;
+			}
 			
-			//Find decimalNumber divided by 8
-			resultInt = decimalNumber/OCTDIVISOR;
+			//Add final remainder to result
+			resultString += resultInt;
 			
-			//Add remainder to result string
-			resultString += tempRemain;
-			
-			//Set decimalNumber
-			decimalNumber = resultInt;
+			return new StringBuilder(resultString).reverse().toString();
 		}
-		
-		//Add final remainder to result
-		resultString += resultInt;
-		
-		return new StringBuilder(resultString).reverse().toString();
+		else
+		{
+			return Integer.toString(decimalNumber);
+		}
 	}
 	
 	//Method for converting bin to dec
