@@ -16,12 +16,12 @@ import android.widget.EditText;
  * Formats include: decimal, binary, hex
  * 
  * @authors: Jennifer Lemke and Curran Hamilton
- * @version: 1/9/2014 7:57pm
+ * @version: 2/12/2014 
  */
 
 public class MainActivity extends Activity {
 	public final static String EXTRA_MESSAGE = "com.example.pocketconverter.MESSAGE";
-	private EditText decimalText;
+	private EditText decText;
 	private EditText octText;
 	private EditText hexText;
 	private EditText binText;
@@ -52,12 +52,9 @@ public class MainActivity extends Activity {
 		String decToOct;
 		
 		//Finds the text value for decimal text field
-	    decimalText = (EditText) findViewById(R.id.dec_field);
-		decInput = decimalText.getText().toString();
+	    decText = (EditText) findViewById(R.id.dec_field);
+		decInput = decText.getText().toString();
 		int decimalNumber = 0;
-		
-		//Test the input of the decimal field
-		final StringBuilder errorMessage = new StringBuilder("Bad Input Value: ");
 				
 		//Finds text value for binary text field
 		binText = (EditText) findViewById(R.id.bin_field);
@@ -77,8 +74,9 @@ public class MainActivity extends Activity {
 		if(!decInput.equals("")){
 			try {
 				decimalNumber = Integer.parseInt(decInput);
-			} catch (final NumberFormatException e) {
-				errorMessage.append("Failed to parse decimal number" + e.getMessage());
+			} 
+			catch (final NumberFormatException e) {
+				
 			}
 			//Call method that will convert the other forms
 			decToHex = calc.convertHex(decimalNumber);
@@ -95,7 +93,7 @@ public class MainActivity extends Activity {
 			binToDec = calc.convertBinToDec(binInput);
 			decToHex = calc.convertHex(binToDec);
 			decToOct = calc.convertOct(binToDec);
-			decimalText.setText(Integer.toString(binToDec));
+			decText.setText(Integer.toString(binToDec));
 			hexText.setText(decToHex);
 			octText.setText(decToOct);
 			
@@ -105,7 +103,7 @@ public class MainActivity extends Activity {
 			hexToDec = calc.convertHexToDec(hexInput);
 			decToBin = calc.convertBin(hexToDec);
 			decToOct = calc.convertOct(hexToDec);
-			decimalText.setText(Integer.toString(hexToDec));
+			decText.setText(Integer.toString(hexToDec));
 			octText.setText(decToOct);
 			binText.setText(decToBin);
 		}
@@ -114,7 +112,7 @@ public class MainActivity extends Activity {
 			octToDec = calc.convertOctToDec(octInput);
 			decToBin = calc.convertBin(octToDec);
 			decToHex = calc.convertHex(octToDec);
-			decimalText.setText(Integer.toString(octToDec));
+			decText.setText(Integer.toString(octToDec));
 			binText.setText(decToBin);
 			hexText.setText(decToHex);
 		}
@@ -128,34 +126,12 @@ public class MainActivity extends Activity {
 		this.binInput = "";
 		this.hexInput = "";
 		this.octInput = "";
-		binText = (EditText) findViewById(R.id.bin_field);
-		hexText = (EditText) findViewById(R.id.hex_field);
-		octText = (EditText) findViewById(R.id.oct_field);
-		decimalText = (EditText) findViewById(R.id.dec_field);
 		this.binText.setText(emptyString);
 		this.hexText.setText(emptyString);
 		this.octText.setText(emptyString);
-		this.decimalText.setText(emptyString);
+		this.decText.setText(emptyString);
 		
 	}
 	
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle presses on the action bar items
-	    switch (item.getItemId()) {
-	        case R.id.action_settings:
-	            openSettings();
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
-	}
-
-	private void openSettings() {
-		Intent intent = new Intent(this, SettingsActivity.class);
-		//String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-		startActivity(intent);
-	}
-	
 }

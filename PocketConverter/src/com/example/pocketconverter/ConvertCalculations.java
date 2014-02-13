@@ -1,12 +1,8 @@
 package com.example.pocketconverter;
 
-
-
 public class ConvertCalculations {
 
-	//private int division;
 	private String resultString;
-	private String tempHexString;
 	private int resultInt;
 	private int tempRemain;
 	private final int HEXDIVISOR = 16; 
@@ -14,7 +10,6 @@ public class ConvertCalculations {
 	private final int OCTDIVISOR = 8;
 	
 	public ConvertCalculations(){
-	    //division = 0;
 	    resultString = "";
 	    resultInt = 0;
 	    tempRemain = 0;
@@ -22,6 +17,7 @@ public class ConvertCalculations {
 	
 	//Method for converting dec to hex
 	public String convertHex(int decimalNumber) {
+		String tempHexString = "";
 		resultString = "";
 	    resultInt = 0;
 	    tempRemain = 0;
@@ -31,7 +27,6 @@ public class ConvertCalculations {
 			
 			//Find decimalNumber divided by 16
 			resultInt = decimalNumber/HEXDIVISOR;
-			
 			
 			//Setting the hex alphabet value to numbers 10 to 15
 			switch(tempRemain){
@@ -125,8 +120,7 @@ public class ConvertCalculations {
 	
 	//Method for converting dec to oct
 	public String convertOct(int decimalNumber) {
-		if(decimalNumber >7)
-		{
+		if(decimalNumber >7){
 			resultString = "";
 		    resultInt = 0;
 		    tempRemain = 0;
@@ -149,8 +143,7 @@ public class ConvertCalculations {
 			
 			return new StringBuilder(resultString).reverse().toString();
 		}
-		else
-		{
+		else{
 			return Integer.toString(decimalNumber);
 		}
 	}
@@ -176,7 +169,8 @@ public class ConvertCalculations {
 		try {
 		    resultInt = Integer.parseInt(hexNumber, 16);
 
-		} catch (final NumberFormatException e) {
+		} 
+		catch (final NumberFormatException e) {
 			return resultInt;
 		}
 	    tempRemain = 0;
